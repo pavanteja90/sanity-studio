@@ -169,6 +169,7 @@ export default {
         importantNotes,
         ...buildCoreSchemaArrayMembers(),
       ],
+      group: ['page-components']
     }),
   ],
 }

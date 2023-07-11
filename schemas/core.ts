@@ -1,4 +1,4 @@
-import {BlockContentIcon, StringIcon} from '@sanity/icons'
+import {BlockContentIcon, ImageIcon, StringIcon} from '@sanity/icons'
 import {defineArrayMember, defineField} from 'sanity'
 
 const CoreSchemas = {
@@ -49,6 +49,20 @@ const CoreSchemas = {
       },
     ],
   }),
+  imageObject: defineField({
+    name: 'imageObject',
+    title: 'Image component',
+    type: 'object',
+    icon: ImageIcon,
+    fields: [
+      {
+        name: 'image',
+        title: 'Image',
+        type: 'image',
+        validation: (Rule) => Rule.required(),
+      },
+    ],
+  }),
 }
 
 const buildCoreSchemaArrayMembers = (): ReturnType<typeof defineArrayMember>[] => {
@@ -56,6 +70,7 @@ const buildCoreSchemaArrayMembers = (): ReturnType<typeof defineArrayMember>[] =
     defineArrayMember(CoreSchemas.textObject),
     defineArrayMember(CoreSchemas.richTextObject),
     defineArrayMember(CoreSchemas.headerObject),
+    defineArrayMember(CoreSchemas.imageObject),
   ]
 }
 

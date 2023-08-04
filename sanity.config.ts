@@ -13,6 +13,7 @@ import {
 import {workflow} from 'sanity-plugin-workflow'
 import {CommentIcon} from '@sanity/icons'
 import Preview from './Preview/Preview'
+import { media } from 'sanity-plugin-media'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
@@ -56,6 +57,7 @@ export default defineConfig({
       //   return S.documentTypeList('pet')
       // },
     }),
+    media(),
     visionTool(),
     ...(isDev ? devOnlyPlugins : []),
     dashboardTool({widgets: [sanityTutorialsWidget(), projectInfoWidget(), projectUsersWidget()]}),
